@@ -2,14 +2,17 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   :root {
+    --black-500: rgba(0, 0, 0, 0.5);
+    --black-200: rgba(0, 0, 0, 0.25);
     --white-900: #FFFFFF;
+    --green-250: #6F8E50;
     --green-300: #90AD38;
     --green-500: #548D39;
     --green-600: #477232;
+    --orange-600: #FF8A2E;
+    --orange-800: #FF6D2D;
     --orange-900: #EA4903;
     --yellow-700: #FFC42E;
-    --orange-600: #FF8A2E;
-    --black-450: rgba(0, 0, 0, 0.5);
   }
 
   * {
