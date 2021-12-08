@@ -5,6 +5,7 @@ export default createGlobalStyle`
     --black-500: rgba(0, 0, 0, 0.5);
     --black-200: rgba(0, 0, 0, 0.25);
     --white-900: #FFFFFF;
+    --green-100: #B1CB1E;
     --green-250: #6F8E50;
     --green-300: #90AD38;
     --green-500: #548D39;
@@ -22,7 +23,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
   
-  body {
+  body, input, button {
     font: 16px 'ABeeZee', sans-serif;
   }
 
