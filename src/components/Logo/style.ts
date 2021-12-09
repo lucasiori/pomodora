@@ -35,6 +35,11 @@ const LogoWrapper = styled.div<LogoWrapperProps>`
   max-width: 12.75rem;
   height: 12.75rem;
   opacity: 0;
+
+  @media screen and (max-width: 580px) {
+    max-width: 10.5rem;
+    height: 10.5rem;  
+  }
   
   ${({ isSplashScreen }) => isSplashScreen && css`
     animation: ${enter} 600ms 500ms ease-in-out forwards;
@@ -45,9 +50,11 @@ const LogoWrapper = styled.div<LogoWrapperProps>`
   `};
 
   ${({ isSplashScreen }) => !isSplashScreen && css`
-    max-width: 8.75rem;
-    height: 8.75rem;  
-    opacity: 1;
+    & {
+      max-width: 8.75rem;
+      height: 8.75rem;  
+      opacity: 1;
+    }
   `};
 `;
 

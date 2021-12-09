@@ -11,7 +11,13 @@ import { Wrapper, Content } from '../style/pages/home';
 type CycleType = 'initial' | 'work' | 'break' | 'menu';
 
 const Home: NextPage = () => {
-  const [step, setStep] = useState<CycleType>('menu');
+  const [step, setStep] = useState<CycleType>('initial');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStep('work');
+    }, 2000);
+  }, [])
   
   return (
     <Wrapper step={step}>
@@ -22,7 +28,9 @@ const Home: NextPage = () => {
 
         {(step === 'work' || step === 'break') && (
           <>
-            <CycleSwitcher onChangeCycle={() => {}} />
+            <CycleSwitcher
+              onChangeCycle={(type) => setStep(type)}
+            />
 
             <Timer
               initialTimeInSeconds={1500}
@@ -32,7 +40,7 @@ const Home: NextPage = () => {
 
             <ControlButtons
               isRunning={false}
-              onOpenSettings={() => {}}
+              onOpenSettings={() => setStep('menu')}
               onPause={() => {}}
               onReset={() => {}}
               onStart={() => {}}
@@ -41,7 +49,7 @@ const Home: NextPage = () => {
         )}
 
         {step === 'menu' && (
-          <Menu />
+          <Menu onClose={() => setStep('work')} />
         )}
       </Content>
     </Wrapper>

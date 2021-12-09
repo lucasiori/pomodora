@@ -65,6 +65,12 @@ const Wrapper = styled.main<WrapperProps>`
       margin-top: 4.5rem;
     }
   }
+
+  @media screen and (max-width: 580px) {
+    section + section {
+      margin-top: 3rem;
+    }
+  }
 `;
 
 const Content = styled.div`

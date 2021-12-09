@@ -11,6 +11,10 @@ const TimerValue = styled.strong`
   font-size: 7rem;
   font-weight: 400;
   filter: drop-shadow(0px 4px 4px var(--black-200));
+
+  @media screen and (max-width: 580px) {
+    font-size: 5rem;
+  }
 `;
 
 export {
