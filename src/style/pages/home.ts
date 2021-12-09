@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-type CycleType = 'initial' | 'work' | 'break';
+type CycleType = 'initial' | 'work' | 'break' | 'menu';
 
 interface WrapperProps {
   step: CycleType;
@@ -21,6 +21,13 @@ const getBackground = (step: CycleType) => {
         50% 50% at 50% 50%,
         var(--green-100) 0%,
         var(--green-250) 98.44%
+        );
+      `;
+    case 'menu':
+      return css`background: radial-gradient(
+        50% 50% at 50% 50%,
+        var(--yellow-300) 0%,
+        var(--yellow-900) 100%
         );
       `;
     default:

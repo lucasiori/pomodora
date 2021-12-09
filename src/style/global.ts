@@ -6,6 +6,7 @@ export default createGlobalStyle`
     --black-200: rgba(0, 0, 0, 0.25);
     --white-900: #FFFFFF;
     --green-100: #B1CB1E;
+    --green-150: #A0B142;
     --green-250: #6F8E50;
     --green-300: #90AD38;
     --green-500: #548D39;
@@ -13,7 +14,9 @@ export default createGlobalStyle`
     --orange-600: #FF8A2E;
     --orange-800: #FF6D2D;
     --orange-900: #EA4903;
+    --yellow-300: #FFD466;
     --yellow-700: #FFC42E;
+    --yellow-900: #FFB800;
   }
 
   * {

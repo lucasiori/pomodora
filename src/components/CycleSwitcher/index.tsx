@@ -32,7 +32,7 @@ const CycleSwitcher = ({ onChangeCycle }: CycleSwitcherProps) => {
         isSelected={selectedType === 'break'}
         onClick={() => handleChangeCycle('break')}
       >
-        Break
+        Intervalo
       </CycleItem>
     </Wrapper>
   );

@@ -3,20 +3,15 @@ import { NextPage } from 'next';
 import Logo from '../components/Logo';
 import CycleSwitcher from '../components/CycleSwitcher';
 import Timer from '../components/Timer';
+import ControlButtons from '../components/ControlButtons';
+import Menu from '../components/Menu';
 import GlobalStyle from '../style/global';
 import { Wrapper, Content } from '../style/pages/home';
-import ControlButtons from '../components/ControlButtons';
 
-type CycleType = 'initial' | 'work' | 'break';
+type CycleType = 'initial' | 'work' | 'break' | 'menu';
 
 const Home: NextPage = () => {
-  const [step, setStep] = useState<CycleType>('initial');
-
-  useEffect(() => {
-    setTimeout(() => {
-      setStep('work');
-    }, 2000);
-  }, []);
+  const [step, setStep] = useState<CycleType>('menu');
   
   return (
     <Wrapper step={step}>
@@ -25,7 +20,7 @@ const Home: NextPage = () => {
       <Content>
         <Logo isSplashScreen={step === 'initial'} />
 
-        {step !== 'initial' && (
+        {(step === 'work' || step === 'break') && (
           <>
             <CycleSwitcher onChangeCycle={() => {}} />
 
@@ -43,6 +38,10 @@ const Home: NextPage = () => {
               onStart={() => {}}
             />
           </>
+        )}
+
+        {step === 'menu' && (
+          <Menu />
         )}
       </Content>
     </Wrapper>
