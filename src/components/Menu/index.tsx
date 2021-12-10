@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import Image from 'next/image';
+import useSettings from '../../hooks/useSettings';
 import Switch from '../Switch';
 import { Wrapper, CloseButton, Label, Span, RangeInput } from './style';
 
@@ -8,10 +8,20 @@ interface MenuProps {
 }
 
 const Menu = ({ onClose }: MenuProps) => {
-  const [isLongBreakActive, setIsLongBreakActive] = useState(false);
-  const [workTime, setWorkTime] = useState(25)
-  const [breakTime, setBreakTime] = useState(5);
-  const [longBreakTime, setLongBreakTime] = useState(15);
+  const {
+    settings,
+    setWorkTime,
+    setBreakTime,
+    setHasLongBreak,
+    setLongBreakTime
+  } = useSettings();
+  
+  const {
+    workTime,
+    breakTime,
+    hasLongBreak,
+    longBreakTime
+  } = settings;
 
   return (
     <Wrapper>
@@ -54,14 +64,17 @@ const Menu = ({ onClose }: MenuProps) => {
       <div>
         <Label htmlFor="long-break-input">
           {
-            isLongBreakActive
+            hasLongBreak
               ? `Intervalo longo - ${longBreakTime > 1 ? `${longBreakTime} minutos` : `${longBreakTime} minuto`}`
               : 'Intervalo longo'
           }
         </Label>
         <Span>(A cada 4 intervalos)</Span>
         
-        <Switch onChange={(isActive) => setIsLongBreakActive(isActive)} />
+        <Switch
+          initialValue={hasLongBreak}
+          onChange={(isActive) => setHasLongBreak(isActive)}
+        />
 
         <RangeInput
           id="long-break-input"
@@ -72,7 +85,7 @@ const Menu = ({ onClose }: MenuProps) => {
           step={1}
           value={longBreakTime}
           onChange={({ target }) => setLongBreakTime(Number(target.value))}
-          isVisible={isLongBreakActive}
+          isVisible={hasLongBreak}
         />
       </div>
     </Wrapper>
