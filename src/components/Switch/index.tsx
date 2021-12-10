@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Wrapper, Highlighter } from './style';
 
 interface SwitchProps {
@@ -7,7 +7,11 @@ interface SwitchProps {
 }
 
 const Switch = ({ initialValue = false, onChange }: SwitchProps) => {
-  const [isActive, setIsActive] = useState(initialValue);
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    setIsActive(initialValue);
+  }, [initialValue])
 
   const handleChange = () => {
     onChange(!isActive);

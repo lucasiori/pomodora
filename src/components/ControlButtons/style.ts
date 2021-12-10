@@ -31,7 +31,7 @@ const StartButton = styled.button`
 `;
 
 const PauseButton = styled.button`
-  ${baseButtonStyles('5.625rem', '--orange-800')};
+  ${baseButtonStyles('5.625rem', '--green-600')};
 `;
 
 const SettingsButton = styled.button`

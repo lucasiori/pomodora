@@ -5,16 +5,12 @@ const Wrapper = styled.section`
   width: 340px;
   padding-top: 1rem;
 
-  &, > div {
+  & {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-  }
-
-  > div + div {
-    margin-top: 2rem;
   }
 `;
 
@@ -35,6 +31,26 @@ const CloseButton = styled.button`
   &:hover {
     opacity: 0.84;
     transform: translateY(-12.75rem) scale(0.9);
+  }
+`;
+
+interface ContentProps {
+  isVisible: boolean;
+}
+
+const Content = styled.div<ContentProps>`
+  opacity: ${({ isVisible }) => isVisible ? 1 : 0};
+
+  > div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+
+    & + div {
+      margin-top: 2rem;
+    }
   }
 `;
 
@@ -121,6 +137,7 @@ const RangeInput = styled.input<RangeInputProps>`
 export {
   Wrapper,
   CloseButton,
+  Content,
   Label,
   Span,
   RangeInput

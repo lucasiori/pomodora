@@ -12,10 +12,12 @@ type Settings = {
 
 type UseSettingsReturn = {
   settings: Settings,
+  isSettingsLoaded: boolean,
   setWorkTime: (value: number) => void,
   setBreakTime: (value: number) => void,
   setHasLongBreak: (value: boolean) => void,
-  setLongBreakTime: (value: number) => void
+  setLongBreakTime: (value: number) => void,
+  reloadSettings: () => void
 }
 
 const defaulSettingsValue: Settings = {
@@ -28,50 +30,74 @@ const defaulSettingsValue: Settings = {
 const useSettings = (): UseSettingsReturn => {
   const localStorage = useLocalStorage();
 
-  const [settings, setSettings] = useState<Settings>(() => {
-    return localStorage.getItem(storageSettingsKey) || defaulSettingsValue;
-  });
+  const [settings, setSettings] = useState<Settings>(defaulSettingsValue);
+  const [isSettingsLoaded, setIsSettingsLoaded] = useState(false);
+
+  const updateSettings = (newSettings: Settings) => {
+    setSettings(newSettings);
+    localStorage.setItem(storageSettingsKey, newSettings);
+  }
 
   const setWorkTime = (value: number) => {
-    setSettings({
+    const newSettings = {
       ...settings,
       workTime: value
-    });
+    };
+
+    updateSettings(newSettings);
   }
 
   const setBreakTime = (value: number) => {
-    setSettings({
+    const newSettings = {
       ...settings,
       breakTime: value
-    });
+    };
+
+    updateSettings(newSettings);
   }
 
   const setHasLongBreak = (value: boolean) => {
-    setSettings({
+    const newSettings = {
       ...settings,
       hasLongBreak: value
-    });
+    };
+
+    updateSettings(newSettings);
   }
 
   const setLongBreakTime = (value: number) => {
-    setSettings({
+    const newSettings = {
       ...settings,
       longBreakTime: value
-    });
+    };
+
+    updateSettings(newSettings);
   }
 
-  useEffect(() => {
-    if (settings) {
-      localStorage.setItem(storageSettingsKey, settings);
+  const loadStoragedSettings = () => {
+    const storagedSettings = localStorage.getItem(storageSettingsKey)
+
+    if (storagedSettings) {
+      setSettings(storagedSettings);
     }
-  }, [settings]);
+
+    setIsSettingsLoaded(true);
+  }
+
+  const reloadSettings = () => {
+    loadStoragedSettings();
+  }
+
+  useEffect(loadStoragedSettings, []);
 
   return {
     settings,
+    isSettingsLoaded,
     setWorkTime,
     setBreakTime,
     setHasLongBreak,
-    setLongBreakTime
+    setLongBreakTime,
+    reloadSettings
   };
 }
 

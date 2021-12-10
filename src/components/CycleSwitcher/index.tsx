@@ -1,17 +1,13 @@
-import { useState } from 'react';
+import { CycleType } from '../../types'
 import { Wrapper, CycleItem  } from './style';
 
-type CycleType = 'work' | 'break';
-
 interface CycleSwitcherProps {
+  currentCycle: CycleType;
   onChangeCycle: (type: CycleType) => void;
 }
 
-const CycleSwitcher = ({ onChangeCycle }: CycleSwitcherProps) => {
-  const [selectedType, setSelectedType] = useState<CycleType>('work');
-
+const CycleSwitcher = ({ currentCycle, onChangeCycle }: CycleSwitcherProps) => {
   const handleChangeCycle = (type: CycleType) => {
-    setSelectedType(type);
     onChangeCycle(type);
   }
 
@@ -20,7 +16,7 @@ const CycleSwitcher = ({ onChangeCycle }: CycleSwitcherProps) => {
       <CycleItem
         type="button"
         cycleType="work"
-        isSelected={selectedType === 'work'}
+        isSelected={currentCycle === 'work'}
         onClick={() => handleChangeCycle('work')}
       >
         Pomodora
@@ -29,7 +25,7 @@ const CycleSwitcher = ({ onChangeCycle }: CycleSwitcherProps) => {
       <CycleItem
         type="button"
         cycleType="break"
-        isSelected={selectedType === 'break'}
+        isSelected={currentCycle === 'break' || currentCycle === 'long-break'}
         onClick={() => handleChangeCycle('break')}
       >
         Intervalo

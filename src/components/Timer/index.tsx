@@ -1,16 +1,24 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Wrapper, TimerValue } from './style';
 
+type CycleState = 'initial' | 'running' | 'paused';
 interface TimerProps {
   initialTimeInSeconds: number;
-  isRunning: boolean;
+  cycleState: CycleState;
   onEndCycle: () => void;
 }
 
-const Timer = ({ initialTimeInSeconds, isRunning, onEndCycle }: TimerProps) => {
-  const [remainingTimeInSeconds, setRemainingTimeInSeconds] = useState(initialTimeInSeconds);
+const Timer = ({
+  initialTimeInSeconds,
+  cycleState,
+  onEndCycle: onEndCycleProp
+}: TimerProps) => {
+  const [remainingTimeInSeconds, setRemainingTimeInSeconds] = useState(0);
+  const [intervalId, setIntervalId] = useState<NodeJS.Timer>();
 
   const formatTime = useCallback((value: number): string => {
+    if (value === 0) return '';
+    
     const minutes = Math.floor(value / 60);
     const seconds = value % 60;
     const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
@@ -18,29 +26,51 @@ const Timer = ({ initialTimeInSeconds, isRunning, onEndCycle }: TimerProps) => {
     return formattedTime;
   }, []);
 
+  const onEndCycle = () => {
+    if (intervalId) {
+      clearInterval(intervalId);
+      setIntervalId(undefined);
+    }
+
+    setTimeout(onEndCycleProp, 500);
+  }
+
+  const initInterval = () => {
+    const newIntervalId = setInterval(() => {
+      setRemainingTimeInSeconds((oldValue) => oldValue - 1);
+    }, 1000);
+
+    setIntervalId(newIntervalId);
+  }
+
   useEffect(() => {
-    if (!isRunning) return;
-
-    let timeout: NodeJS.Timeout;
-
-    if (remainingTimeInSeconds > 0) {
-      timeout = setTimeout(() => {
-        setRemainingTimeInSeconds((oldValue) => oldValue - 1);
-      }, 1000);
-    } else {
+    if (cycleState === 'running' && remainingTimeInSeconds === 0) {
       onEndCycle();
+    }
+  }, [remainingTimeInSeconds])
+
+  useEffect(() => {
+    setRemainingTimeInSeconds(initialTimeInSeconds);
+  }, [initialTimeInSeconds])
+
+  useEffect(() => {
+    if (intervalId) {
+      clearInterval(intervalId);
+      setIntervalId(undefined);
+    }
+
+    if (cycleState === 'initial') {
+      setRemainingTimeInSeconds(initialTimeInSeconds);
+    } else if (cycleState === 'running') {
+      initInterval();
     }
 
     return () => {
-      clearTimeout(timeout);
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
     }
-  }, [remainingTimeInSeconds]);
-
-  useEffect(() => {
-    if (isRunning) {
-      setRemainingTimeInSeconds(initialTimeInSeconds - 1);
-    }
-  }, [isRunning]);
+  }, [cycleState]);
 
   return (
     <Wrapper>
