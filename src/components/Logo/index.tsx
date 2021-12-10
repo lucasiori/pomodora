@@ -2,12 +2,12 @@ import Image from 'next/image';
 import { LogoWrapper } from './style';
 
 interface LogoProps {
-  isSplashScreen: boolean;
+  isInSplashScreen: boolean;
 }
 
-const Logo = ({ isSplashScreen }: LogoProps) => {
+const Logo = ({ isInSplashScreen }: LogoProps) => {
   return (
-    <LogoWrapper isSplashScreen={isSplashScreen}>
+    <LogoWrapper isInSplashScreen={isInSplashScreen}>
       <Image
         src="/assets/logo.png"
         layout="fill"

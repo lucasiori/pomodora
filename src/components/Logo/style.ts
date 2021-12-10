@@ -2,11 +2,11 @@ import styled, { css, keyframes } from 'styled-components';
 
 const enter = keyframes`
   0% {
-    transform: scale(0);
+    transform: scale(0.4);
   }
 
   50% {
-    transform: scale(1.25);
+    transform: scale(1.1);
   }
 
   100% {
@@ -26,7 +26,7 @@ const rotation = keyframes`
 `;
 
 interface LogoWrapperProps {
-  isSplashScreen: boolean;
+  isInSplashScreen: boolean;
 }
 
 const LogoWrapper = styled.div<LogoWrapperProps>`
@@ -35,21 +35,22 @@ const LogoWrapper = styled.div<LogoWrapperProps>`
   max-width: 12.75rem;
   height: 12.75rem;
   opacity: 0;
+  transition: all 1s ease;
+
+  > span {
+      animation: ${rotation} 3.5s linear 1;
+    }
 
   @media screen and (max-width: 580px) {
     max-width: 10.5rem;
     height: 10.5rem;  
   }
   
-  ${({ isSplashScreen }) => isSplashScreen && css`
-    animation: ${enter} 600ms 500ms ease-in-out forwards;
-    
-    > span {
-      animation: ${rotation} 5s linear infinite;
-    }
+  ${({ isInSplashScreen }) => isInSplashScreen && css`
+    animation: ${enter} 2s 500ms ease-in-out forwards;
   `};
 
-  ${({ isSplashScreen }) => !isSplashScreen && css`
+  ${({ isInSplashScreen }) => !isInSplashScreen && css`
     & {
       max-width: 8.75rem;
       height: 8.75rem;  

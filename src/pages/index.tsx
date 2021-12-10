@@ -8,10 +8,21 @@ import ControlButtons from '../components/ControlButtons';
 import Menu from '../components/Menu';
 import { CycleType, CycleState } from '../types/index';
 import GlobalStyle from '../style/global';
-import { Wrapper, Content } from '../style/pages/home';
+import {
+  Wrapper,
+  InitialBackground,
+  WorkBackground,
+  BreakBackground,
+  MenuBackground,
+  Container,
+  LogoWrapper,
+  ContentWrapper,
+  Content,
+  MenuWrapper,
+} from '../style/pages/home';
 
 const Home: NextPage = () => {
-  const { settings, isSettingsLoaded, reloadSettings } = useSettings();
+  const { settings, reloadSettings } = useSettings();
 
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const [currentCycle, setCurrentCycle] = useState<CycleType>('initial');
@@ -83,11 +94,18 @@ const Home: NextPage = () => {
     <Wrapper currentCycle={currentCycle} isMenuOpened={isMenuOpened}>
       <GlobalStyle />
 
-      <Content>
-        <Logo isSplashScreen={currentCycle === 'initial'} />
+      <InitialBackground isVisible={currentCycle === 'initial'} />
+      <WorkBackground isVisible={currentCycle === 'work'} />
+      <BreakBackground isVisible={currentCycle === 'break'} />
+      <MenuBackground isVisible={isMenuOpened} />
 
-        {(currentCycle !== 'initial') && !isMenuOpened && (
-          <>
+      <Container>
+        <LogoWrapper isInSplashScreen={currentCycle === 'initial'}>
+          <Logo isInSplashScreen={currentCycle === 'initial'} />
+        </LogoWrapper>
+
+        <ContentWrapper isVisible={currentCycle !== 'initial'}>
+          <Content isMenuOpened={!isMenuOpened}>
             <CycleSwitcher
               currentCycle={currentCycle}
               onChangeCycle={(type) => setCurrentCycle(type)}
@@ -106,13 +124,13 @@ const Home: NextPage = () => {
               onReset={() => setCycleState('initial')}
               onStart={() => setCycleState('running')}
             />
-          </>
-        )}
+          </Content>
 
-        {isMenuOpened && (
-          <Menu onClose={() => setIsMenuOpened(false)} />
-        )}
-      </Content>
+          <MenuWrapper isMenuOpened={isMenuOpened}>
+            <Menu onClose={() => setIsMenuOpened(false)} />
+          </MenuWrapper>
+        </ContentWrapper>
+      </Container>
     </Wrapper>
   );
 };
