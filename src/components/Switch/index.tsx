@@ -9,14 +9,14 @@ interface SwitchProps {
 const Switch = ({ initialValue = false, onChange }: SwitchProps) => {
   const [isActive, setIsActive] = useState(false);
 
-  useEffect(() => {
-    setIsActive(initialValue);
-  }, [initialValue])
-
   const handleChange = () => {
     onChange(!isActive);
     setIsActive(!isActive);
   }
+
+  useEffect(() => {
+    setIsActive(initialValue);
+  }, [initialValue])
 
   return (
     <Wrapper isActive={isActive} onClick={handleChange}>

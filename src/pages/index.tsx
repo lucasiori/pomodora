@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NextPage } from 'next';
+import Head from 'next/head';
 import useSettings from '../hooks/useSettings';
 import Logo from '../components/Logo';
 import CycleSwitcher from '../components/CycleSwitcher';
@@ -92,6 +93,13 @@ const Home: NextPage = () => {
   
   return (
     <Wrapper currentCycle={currentCycle} isMenuOpened={isMenuOpened}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#EA4903" />
+
+        <title>Pomodora</title>
+      </Head>
+      
       <GlobalStyle />
 
       <InitialBackground isVisible={currentCycle === 'initial'} />

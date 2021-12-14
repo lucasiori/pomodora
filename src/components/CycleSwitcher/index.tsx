@@ -7,17 +7,13 @@ interface CycleSwitcherProps {
 }
 
 const CycleSwitcher = ({ currentCycle, onChangeCycle }: CycleSwitcherProps) => {
-  const handleChangeCycle = (type: CycleType) => {
-    onChangeCycle(type);
-  }
-
   return (
     <Wrapper>
       <CycleItem
         type="button"
         cycleType="work"
         isSelected={currentCycle === 'work'}
-        onClick={() => handleChangeCycle('work')}
+        onClick={() => onChangeCycle('work')}
       >
         Pomodora
       </CycleItem>
@@ -26,7 +22,7 @@ const CycleSwitcher = ({ currentCycle, onChangeCycle }: CycleSwitcherProps) => {
         type="button"
         cycleType="break"
         isSelected={currentCycle === 'break' || currentCycle === 'long-break'}
-        onClick={() => handleChangeCycle('break')}
+        onClick={() => onChangeCycle('break')}
       >
         Intervalo
       </CycleItem>
