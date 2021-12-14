@@ -1,34 +1,137 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="right">
+  <a href="https://github.com/lucasiori/pomodora/blob/main/README.md">🇧🇷 Português</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://github.com/lucasiori/pomodora/blob/main/README.en-US.md">🇺🇸 English</a>
+</p>
 
-## Getting Started
+<p align="center">
+  <img src="https://github.com/lucasiori/pomodora/blob/main/.github/logo.png" alt="Logo" height="200" />
+</p>
 
-First, run the development server:
+<h1 align="center">Pomodora</h1>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<p align="center">
+  <a href="#about">Sobre</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#techs">Tecnologias</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#running-application">Executando a aplicação</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#preview">Preview</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#credits">Créditos</a>
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h2 id="about">ℹ Sobre</h2>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<p><strong>Pomodora</strong> é uma aplicação desenvolvida para o gerenciamento do tempo, utilizando o "Método de Pomodoro".</p>
+<p>Esse método se resume em dividir seu tempo em ciclos de trabalho/descanso. Por exemplo: 25 minutos focado nas tarefas e 5 minutos de desanso. Dessa forma o método garante um melhor engajamento e dedicação com as tarefas e um ganho na produtividade.</p>
+<p>O objetivo da aplicação é facilitar esse gerenciamento do tempo, sendo possível definir o tamanho dos seus ciclos de tempo e optar por um período de descanso maior a cada 4 ciclos completos (trabalho e descanso).</p>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<br />
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<h2 id="techs">🔧 Tecnologias</h2>
 
-## Learn More
+<table width="100%" align="center">
+  <tbody>
+    <tr>
+      <td width="25%" align="center" vertical-align="middle">
+        <a href="https://pt-br.reactjs.org/" target="_blank">
+          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/react.jpg" alt="React" height="100" />
+        </a>
+      </td>
+      <td width="25%" align="center" vertical-align="middle">
+        <a href="https://nextjs.org/" target="_blank">
+          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/nextjs.jpeg" alt="Next.js" height="100" />
+        </a>
+      </td>
+      <td width="25%" align="center" vertical-align="middle">
+        <a href="https://www.typescriptlang.org/" target="_blank">
+          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/typescript.png" alt="Typescript" height="100" />
+        </a>
+      </td>
+      <td width="25%" align="center" vertical-align="middle">
+        <a href="https://chakra-ui.com/" target="_blank">
+          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/chakra-ui.png" alt="Chakra UI" height="100" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td width="25%" align="center" vertical-align="middle">
+        <a href="https://react-hook-form.com/" target="_blank">
+          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/react-hook-form.jpeg" alt="React Hook Form" height="100" />
+        </a>
+      </td>
+      <td width="25%" align="center" vertical-align="middle">
+        <a href="https://react-query.tanstack.com/" target="_blank">
+          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/react-query.png" alt="React Query" height="100" />
+        </a>
+      </td>
+      <td width="25%" align="center" vertical-align="middle">
+        <a href="https://fauna.com/" target="_blank">
+          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/faunadb.png" alt="Fauna DB" height="100" />
+        </a>
+      </td>
+      <td width="25%" align="center" vertical-align="middle">
+        <a href="https://pt-br.imgbb.com/" target="_blank">
+          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/imgbb.png" alt="ImgBB" width="150" height="100" />
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-To learn more about Next.js, take a look at the following resources:
+<br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<h2 id="running-application">✅ Executando a aplicação</h2>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<strong>Requisitos:</strong>
+<ul>
+  <li>Node.js</li>
+  <li>Gerenciador de pacotes: NPM ou Yarn</li>
+</ul>
 
-## Deploy on Vercel
+<p>
+  Primeiramente, clone o repositório na sua máquina local: <br />
+  <code>git clone https://github.com/lucasiori/pomodora</code>
+</p>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<p>
+  Acesse a pasta do projeto, e no terminal execute o comando para instalar as dependências: <br />
+  <ul>
+    <li>
+      <strong>se estiver utilizando NPM: </strong>
+      <code>npm install</code>
+    </li>
+    <li>
+      <strong>se estiver utilizando Yarn: </strong>
+      <code>yarn</code>
+    </li>
+  </ul>
+</p>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<p>
+  Após instaladas as dependências, certifique-se de que a porta <strong>3000</strong> está disponível, pois é a porta onde a aplicação será executada. <br />
+  Para iniciar a aplicação, execute o comando: <br />
+  <ul>
+    <li>
+      <strong>se estiver utilizando NPM: </strong>
+      <code>npm run start</code>
+    </li>
+    <li>
+      <strong>se estiver utilizando Yarn: </strong>
+      <code>yarn start</code>
+    </li>
+  </ul>
+</p>
+
+<br />
+
+<h2 id="preview">👀 Preview</h2>
+
+<p align="center">
+  <img src="https://github.com/lucasiori/pomodora/blob/main/.github/screenshot.png" alt="Preview da aplicação" />
+</p>
+
+<br />
+
+<h2 id="credits">🤝 Créditos</h2>
+
+<p>
+  Layout desenvolvido por: <a href="https://www.behance.net/mariayevickery" target="_blank">Mariaye Vickery</a>
+</p>
