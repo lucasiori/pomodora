@@ -99,6 +99,10 @@ const Container = styled.div`
   justify-content: center;
   padding-top: 140px;
   z-index: 2;
+
+  audio {
+    display: none;
+  }
 `;
 
 interface LogoWrapperProps {

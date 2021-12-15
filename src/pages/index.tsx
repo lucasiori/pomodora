@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import useSettings from '../hooks/useSettings';
@@ -31,7 +31,13 @@ const Home: NextPage = () => {
   const [cycleTime, setCycleTime] = useState(0);
   const [breaksAmount, setBreaksAmount] = useState<number>(0);
 
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   const goToNextCycle = () => {
+    if (currentCycle !== 'initial' && audioRef.current) {
+      audioRef.current.play();
+    }
+    
     if (currentCycle !== 'work') {
       if (currentCycle === 'break') {
         setBreaksAmount(breaksAmount + 1);
@@ -65,6 +71,21 @@ const Home: NextPage = () => {
         break;
     }
   }
+
+  const handleStartCycle = () => {
+    if (audioRef.current && !audioRef.current.paused) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+
+    setCycleState('running');
+  }
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5;
+    }
+  }, [audioRef.current]);
 
   useEffect(() => {
     if (!isMenuOpened) {
@@ -108,6 +129,8 @@ const Home: NextPage = () => {
       <MenuBackground isVisible={isMenuOpened} />
 
       <Container>
+        <audio ref={audioRef} src="/assets/audio/alarm.mp3" />
+
         <LogoWrapper isInSplashScreen={currentCycle === 'initial'}>
           <Logo isInSplashScreen={currentCycle === 'initial'} />
         </LogoWrapper>
@@ -130,7 +153,7 @@ const Home: NextPage = () => {
               onOpenSettings={() => setIsMenuOpened(true)}
               onPause={() => setCycleState('paused')}
               onReset={() => setCycleState('initial')}
-              onStart={() => setCycleState('running')}
+              onStart={handleStartCycle}
             />
           </Content>
 
