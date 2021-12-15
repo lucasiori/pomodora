@@ -37,9 +37,11 @@ const LogoWrapper = styled.div<LogoWrapperProps>`
   opacity: 0;
   transition: all 1s ease;
 
-  > span {
-      animation: ${rotation} 3.5s linear 1;
-    }
+  > img {
+    max-width: 100%;
+    max-height: 100%;
+    animation: ${rotation} 3.5s linear 1;
+  }
 
   @media screen and (max-width: 580px) {
     max-width: 10.5rem;

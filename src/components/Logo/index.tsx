@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { LogoWrapper } from './style';
 
 interface LogoProps {
@@ -8,12 +7,7 @@ interface LogoProps {
 const Logo = ({ isInSplashScreen }: LogoProps) => {
   return (
     <LogoWrapper isInSplashScreen={isInSplashScreen}>
-      <Image
-        src="/assets/logo.png"
-        layout="fill"
-        objectFit="contain"
-        priority
-      />
+      <img src="/assets/logo.png" />
     </LogoWrapper>
   )
 };

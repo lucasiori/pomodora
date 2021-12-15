@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import useSettings from '../../hooks/useSettings';
 import Switch from '../Switch';
 import {
@@ -34,7 +33,7 @@ const Menu = ({ onClose }: MenuProps) => {
   return (
     <Wrapper>
       <CloseButton type="button" onClick={onClose}>
-        <Image src="/assets/close.svg" width={24} height={24} />
+        <img src="/assets/close.svg" width={24} height={24} />
       </CloseButton>
 
       <Content isVisible={isSettingsLoaded}>
