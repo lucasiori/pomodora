@@ -32,44 +32,17 @@
     <tr>
       <td width="25%" align="center" vertical-align="middle">
         <a href="https://pt-br.reactjs.org/" target="_blank">
-          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/react.jpg" alt="React" height="100" />
+          <img src="https://github.com/lucasiori/pomodora/blob/main/.github/reactjs.png" alt="React JS" height="100" />
         </a>
       </td>
       <td width="25%" align="center" vertical-align="middle">
         <a href="https://nextjs.org/" target="_blank">
-          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/nextjs.jpeg" alt="Next.js" height="100" />
+          <img src="https://github.com/lucasiori/pomodora/blob/main/.github/nextjs.png" alt="Next.js" height="100" />
         </a>
       </td>
       <td width="25%" align="center" vertical-align="middle">
         <a href="https://www.typescriptlang.org/" target="_blank">
-          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/typescript.png" alt="Typescript" height="100" />
-        </a>
-      </td>
-      <td width="25%" align="center" vertical-align="middle">
-        <a href="https://chakra-ui.com/" target="_blank">
-          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/chakra-ui.png" alt="Chakra UI" height="100" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td width="25%" align="center" vertical-align="middle">
-        <a href="https://react-hook-form.com/" target="_blank">
-          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/react-hook-form.jpeg" alt="React Hook Form" height="100" />
-        </a>
-      </td>
-      <td width="25%" align="center" vertical-align="middle">
-        <a href="https://react-query.tanstack.com/" target="_blank">
-          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/react-query.png" alt="React Query" height="100" />
-        </a>
-      </td>
-      <td width="25%" align="center" vertical-align="middle">
-        <a href="https://fauna.com/" target="_blank">
-          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/faunadb.png" alt="Fauna DB" height="100" />
-        </a>
-      </td>
-      <td width="25%" align="center" vertical-align="middle">
-        <a href="https://pt-br.imgbb.com/" target="_blank">
-          <img src="https://github.com/lucasiori/ignite_upfi/blob/master/.github/imgbb.png" alt="ImgBB" width="150" height="100" />
+          <img src="https://github.com/lucasiori/pomodora/blob/main/.github/typescript.png" alt="Typescript" height="100" />
         </a>
       </td>
     </tr>
@@ -95,11 +68,11 @@
   Acesse a pasta do projeto, e no terminal execute o comando para instalar as dependências: <br />
   <ul>
     <li>
-      <strong>se estiver utilizando NPM: </strong>
+      <strong>se estiver utilizando NPM: </strong> <br />
       <code>npm install</code>
     </li>
     <li>
-      <strong>se estiver utilizando Yarn: </strong>
+      <strong>se estiver utilizando Yarn: </strong> <br />
       <code>yarn</code>
     </li>
   </ul>
@@ -110,11 +83,11 @@
   Para iniciar a aplicação, execute o comando: <br />
   <ul>
     <li>
-      <strong>se estiver utilizando NPM: </strong>
+      <strong>se estiver utilizando NPM: </strong> <br />
       <code>npm run start</code>
     </li>
     <li>
-      <strong>se estiver utilizando Yarn: </strong>
+      <strong>se estiver utilizando Yarn: </strong> <br />
       <code>yarn start</code>
     </li>
   </ul>
