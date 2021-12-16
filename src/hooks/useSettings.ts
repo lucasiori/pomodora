@@ -8,6 +8,7 @@ type Settings = {
   breakTime: number;
   hasLongBreak: boolean;
   longBreakTime: number;
+  autoChangeCycle: boolean;
 }
 
 type UseSettingsReturn = {
@@ -17,6 +18,7 @@ type UseSettingsReturn = {
   setBreakTime: (value: number) => void,
   setHasLongBreak: (value: boolean) => void,
   setLongBreakTime: (value: number) => void,
+  setAutoChangeCycle: (value: boolean) => void,
   reloadSettings: () => void
 }
 
@@ -24,7 +26,8 @@ const defaulSettingsValue: Settings = {
   workTime: 25,
   breakTime: 5,
   hasLongBreak: false,
-  longBreakTime: 15
+  longBreakTime: 15,
+  autoChangeCycle: true,
 };
 
 const useSettings = (): UseSettingsReturn => {
@@ -74,6 +77,15 @@ const useSettings = (): UseSettingsReturn => {
     updateSettings(newSettings);
   }
 
+  const setAutoChangeCycle = (value: boolean) => {
+    const newSettings = {
+      ...settings,
+      autoChangeCycle: value
+    };
+
+    updateSettings(newSettings);
+  }
+
   const loadStoragedSettings = () => {
     const storagedSettings = localStorage.getItem(storageSettingsKey)
 
@@ -97,6 +109,7 @@ const useSettings = (): UseSettingsReturn => {
     setBreakTime,
     setHasLongBreak,
     setLongBreakTime,
+    setAutoChangeCycle,
     reloadSettings
   };
 }

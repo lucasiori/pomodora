@@ -36,6 +36,7 @@ const CloseButton = styled.button`
 
 interface ContentProps {
   isVisible: boolean;
+  hasLongBreak: boolean;
 }
 
 const Content = styled.div<ContentProps>`
@@ -51,6 +52,11 @@ const Content = styled.div<ContentProps>`
     & + div {
       margin-top: 2rem;
     }
+  }
+
+  > div:last-child {
+    transform: ${({ hasLongBreak }) => hasLongBreak ? 'translateY(0)' : 'translateY(-30px)'};
+    transition: all 1s ease;
   }
 `;
 

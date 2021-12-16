@@ -97,6 +97,8 @@
 
 <h2 id="preview">👀 Preview</h2>
 
+<strong>Aplicação: <a href="https://my-pomodora.vercel.app/" target="_blank">Pomodora</a></strong>
+
 <p align="center">
   <img src="https://github.com/lucasiori/pomodora/blob/main/.github/screenshot.png" alt="Preview da aplicação" />
 </p>

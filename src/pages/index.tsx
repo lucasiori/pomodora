@@ -70,6 +70,11 @@ const Home: NextPage = () => {
       default:
         break;
     }
+
+    const isFirstCycle = cycleTime === 0;
+    if (!isFirstCycle && settings.autoChangeCycle) {
+      setTimeout(handleStartCycle, 5000);
+    }
   }
 
   const handleStartCycle = () => {
@@ -117,6 +122,7 @@ const Home: NextPage = () => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#EA4903" />
+        <meta name="description" content="Aplicação para gerenciamento de tempo utilizando o Método de Pomodoro" />
 
         <title>Pomodora</title>
       </Head>

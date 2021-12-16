@@ -20,14 +20,16 @@ const Menu = ({ onClose }: MenuProps) => {
     setWorkTime,
     setBreakTime,
     setHasLongBreak,
-    setLongBreakTime
+    setLongBreakTime,
+    setAutoChangeCycle
   } = useSettings();
   
   const {
     workTime,
     breakTime,
     hasLongBreak,
-    longBreakTime
+    longBreakTime,
+    autoChangeCycle
   } = settings;
 
   return (
@@ -36,7 +38,7 @@ const Menu = ({ onClose }: MenuProps) => {
         <img src="/assets/close.svg" width={24} height={24} />
       </CloseButton>
 
-      <Content isVisible={isSettingsLoaded}>
+      <Content isVisible={isSettingsLoaded} hasLongBreak={hasLongBreak}>
         <div>
           <Label htmlFor="work-input">
             Pomodora - {workTime > 1 ? `${workTime} minutos` : `${workTime} minuto`}
@@ -94,6 +96,15 @@ const Menu = ({ onClose }: MenuProps) => {
             value={longBreakTime}
             onChange={({ target }) => setLongBreakTime(Number(target.value))}
             isVisible={hasLongBreak}
+          />
+        </div>
+
+        <div>
+          <Label>Troca automática de ciclos</Label>
+          
+          <Switch
+            initialValue={autoChangeCycle}
+            onChange={(isActive) => setAutoChangeCycle(isActive)}
           />
         </div>
       </Content>
