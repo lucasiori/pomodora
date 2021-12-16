@@ -46,13 +46,16 @@ const Home: NextPage = () => {
       }
 
       setCurrentCycle('work');
-      return;
+    } else {
+      if (breaksAmount === 4 && settings.hasLongBreak) {
+        setCurrentCycle('long-break');
+      } else {
+        setCurrentCycle('break');
+      }
     }
 
-    if (breaksAmount === 4 && settings.hasLongBreak) {
-      setCurrentCycle('long-break');
-    } else {
-      setCurrentCycle('break');
+    if (settings.autoChangeCycle) {
+      setTimeout(handleStartCycle, 5000);
     }
   }
 
@@ -69,11 +72,6 @@ const Home: NextPage = () => {
         break;
       default:
         break;
-    }
-
-    const isFirstCycle = cycleTime === 0;
-    if (!isFirstCycle && settings.autoChangeCycle) {
-      setTimeout(handleStartCycle, 5000);
     }
   }
 
